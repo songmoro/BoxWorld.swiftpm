@@ -9,22 +9,36 @@ import SwiftUI
 
 struct IFarmView: View {
     var body: some View {
+        //        VStack(){
+        //            HStack(){
+        //
+        //                Text("iFarm")
+        //                    .border(.gray)
+        //                Text("우리 팀 설명")
+        //                    .border(.gray)
+        //            }
+        ////
+        //            GeometryReader { geo in
+        //                Image("miniroom")
+        //                    .resizable()
+        //                    .aspectRatio(contentMode: .fit)
+        //                    .frame(width: geo.size.width, height: geo.size.height)
+        //            }
+        //        }
+        
+        
         VStack(){
             HStack(){
                 
                 Text("iFarm")
-                    .border(.gray)
-                Text("우리 팀 설명")
-                    .border(.gray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.orange)
             }
-            
-            GeometryReader { geo in
-                Image("miniroom")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geo.size.width, height: geo.size.height)
-            }
+            Image("miniroom")
+                .resizable()
         }
+        .padding(.horizontal, 50)
+        .padding(.bottom, 50)
     }
 }
 

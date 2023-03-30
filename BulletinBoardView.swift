@@ -8,31 +8,36 @@
 import SwiftUI
 
 struct BulletinBoardView: View {
-    var board : [String] = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ"]
+    var board : [String] = ["ㄱㄴㄷㄹ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ"]
     
     var body: some View {
         VStack(){
-            GeometryReader { geo in
-                VStack(){
-                    Text("Updated News")
-                        .foregroundColor(.gray)
-                    
-                    ScrollView {
-                        ForEach(board, id: \.self){list in
-                            Rectangle()
-                                .frame(width: geo.size.width, height: geo.size.height * 0.20)
+            Text("Updated News")
+                .foregroundColor(.orange)
+            
+            Divider()
+                
+            ScrollView() {
+                ForEach(board, id: \.self){list in
+                    Button {
+                        
+                    } label: {
+                        HStack(){
+                            Ellipse()
+                                .fixedSize()
+                                .foregroundColor(.gray)
+                                
+                            Text("\(list)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .foregroundColor(.indigo)
-                                .overlay {
-                                    Button(list) {
-                                        
-                                    }
-                                    .foregroundColor(.white)
-                                }
                         }
                     }
                 }
             }
+            
         }
+        .padding(.top, 50)
+        .padding(.leading, 20)
     }
 }
 
